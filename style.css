@@ -308,3 +308,52 @@ p {
   height: 150px;
   color: var(--color-white);
 }
+
+/* work */
+
+#work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category__btn {
+  border: 1px solid var(--color-dark-white);
+  padding: 3px 30px;
+  border-radius: var(--size-border-radius);
+}
+
+.category__btn .category__count {
+  display: none;
+}
+
+.category__btn.active {
+  background: var(--color-pink);
+  color: var(--color-white);
+}
+
+.category__btn.active .category__count {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--color-orange);
+}
+
+.work__projects {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+}
+
+.work__projects .project {
+  width: 24%;
+  background: var(--color-light-white);
+  margin: 2px;
+}
+
+.work__projects .project .project__img {
+  height: 180px;
+  display: block;
+  margin: 0 auto;
+}
