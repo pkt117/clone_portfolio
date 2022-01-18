@@ -101,6 +101,8 @@ p {
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .navbar__menu {
@@ -133,6 +135,8 @@ p {
   background: url(imgs/home_img.png) center/cover no-repeat;
   text-align: center;
   padding: 40px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .home__avatar {
@@ -155,4 +159,66 @@ p {
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
   border-radius: var(--size-border-radius);
+}
+
+/* about */
+
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.about__comment {
+  padding: 0 15%;
+  text-align: center;
+}
+
+.about__majors {
+  display: flex;
+}
+
+.about__majors .major {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 30px;
+  text-align: center;
+}
+
+.about__majors .major .major__icon {
+  color: var(--color-blue);
+  font-size: var(--font-large);
+  border: 1px solid var(--color-blue);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.about__majors .major .major__icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about__jobs {
+  align-self: flex-start;
+}
+
+.about__jobs .job {
+  margin: 10px 0;
+}
+.about__jobs .job .job__logo {
+  width: var(--font-large);
+  float: left;
+  margin: 10px 20px;
+}
+
+.about__jobs .job p {
+  font-size: var(--font-micro);
+  white-space: nowrap;
 }
