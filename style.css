@@ -365,6 +365,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 #testimonials .testimonials__subTitle {
@@ -394,4 +395,32 @@ p {
 
 .testimonial:nth-of-type(2) .testimonial__avatar {
   order: 2;
+}
+
+/* contact */
+
+#contact {
+  background: var(--color-dark-pink);
+  text-align: center;
+  padding: 10px;
+}
+
+#contact .contact__title {
+  color: var(--color-white);
+  font-size: var(--font-medium);
+}
+
+#contact .contact__email {
+  color: var(--color-white);
+  font-size: var(--font-regular);
+}
+
+#contact .contact__links i {
+  font-size: var(--font-medium);
+  margin: 2px;
+}
+
+#contact .contact__rights {
+  font-size: var(--font-micro);
+  color: var(--color-light-white);
 }
