@@ -1,66 +1,89 @@
 "use strict";
-// work에서의 button 이벤트
 
-const btn_click = document.querySelectorAll(".category__btn");
-
-btn_click.forEach(
-  (element) => element.addEventListener("click", (event) => handleClick(event))
-  // (event) => handleClick(event)를 handleClick로 줄여서가능
-);
-
-function handleClick(event) {
-  if (event.target.classList[1] === "active") {
-    event.target.classList.remove("active");
-  } else {
-    btn_click.forEach((element) => element.classList.remove("active"));
-    event.target.classList.add("active");
+// navbar 버튼 클릭 이벤트 -> 메뉴 아이템 클릭시 border 와 background 변경
+// navbar 버튼 클릭시 해당 위치로 스크롤 이동
+const navbar_menu = document.querySelector(".navbar__menu");
+const menu_items = document.querySelectorAll(".navbar__menu__item");
+navbar_menu.addEventListener("click", (event) => {
+  if (event.target.dataset.id == null) {
+    return;
   }
-}
-
-// navbar 메뉴바 이벤트
-
-const nav_menu = document.querySelector(".navbar__toggle-btn");
-
-nav_menu.addEventListener("click", () => {
-  document.querySelector(".navbar__menu").classList.toggle("open");
+  scrollIntoView(event.target.dataset.id);
+  menu_items.forEach((element) => element.classList.remove("active"));
+  event.target.classList.add("active");
 });
 
-// navbar 스크롤시 투명한색 => 진한색
+const contact_btn = document.querySelector(".home__btn");
+contact_btn.addEventListener("click", () => {
+  scrollIntoView("#contact");
+});
+// navbar 스크롤시 투명색 => 진한색 && toggle 버튼 이벤트
 const navbar = document.querySelector("#navbar");
-const navbarHeight = navbar.getBoundingClientRect().height;
-
+const navbar_height = navbar.getBoundingClientRect().height;
+const toggle_btn = document.querySelector(".navbar__toggle-btn");
 document.addEventListener("scroll", () => {
-  if (window.scrollY > navbarHeight) {
+  if (window.scrollY > navbar_height) {
     navbar.classList.add("navbar--dark");
+    toggle_btn.classList.add("navbar--dark");
   } else {
     navbar.classList.remove("navbar--dark");
+    toggle_btn.classList.remove("navbar--dark");
   }
 });
+toggle_btn.addEventListener("click", () => {
+  navbar_menu.classList.toggle("open");
+});
+// 스크롤하면 할수록 home의 text 들이 점점 투명해지는 이벤트
+const home_container = document.querySelector(".home__container");
+const homeHeight = home_container.getBoundingClientRect().height;
 
-// navbar menu 클릭시 border 변화와 menu에 맞는 화면이동
+document.addEventListener("scroll", () => {
+  if (window.scrollY <= homeHeight) {
+    home_container.style.opacity = 1 - window.scrollY / homeHeight;
+  }
+});
+// work에서의 button 클릭 이벤트 && filter에 맞는 데이터 출력
+const category_btn = document.querySelector(".work__categories");
+const btn_items = document.querySelectorAll(".category__btn");
+const btn_datas = document.querySelectorAll(".project");
+const project_container = document.querySelector(".work__projects");
+category_btn.addEventListener("click", (event) => {
+  const category =
+    event.target.dataset.category || event.target.parentNode.dataset.category;
 
-const navbar_menu = document.querySelector(".navbar__menu");
-const navbar_menu_item = document.querySelectorAll(".navbar__menu__item");
+  if (category == null) return;
+  //  버튼 클릭 부분
+  btn_items.forEach((element) => element.classList.remove("active"));
+  event.target.classList.add("active") ||
+    event.target.parentNode.classList.add("active");
+  // filter에 맞는 데이터 출력 및 애니메이션
+  project_container.classList.add("out_ani");
+  setTimeout(() => {
+    btn_datas.forEach((element) => {
+      if (category === "all" || element.dataset.category === category) {
+        element.classList.remove("invisible");
+      } else {
+        element.classList.add("invisible");
+      }
+    });
+    project_container.classList.remove("out_ani");
+  }, 200);
+});
 
-navbar_menu.addEventListener("click", (event) => {
-  const scrollTo = `${event.target.dataset.id}`;
-  if (scrollTo == "null") return;
-  scrollIntoView(scrollTo);
-
-  if (event.target.classList[1] === "active") {
-    event.target.classList.remove("active");
+//  top_btn 클릭시 스크롤 탑으로 !
+// 맨위에서는 보이지 않고 어느정도 스크롤 됐을경우 보이도록
+const top_btn = document.querySelector("#top_btn");
+document.addEventListener("scroll", () => {
+  if (window.scrollY > homeHeight / 2) {
+    top_btn.classList.add("visible");
   } else {
-    navbar_menu_item.forEach((element) => element.classList.remove("active"));
-
-    event.target.classList.add("active");
+    top_btn.classList.remove("visible");
   }
 });
+top_btn.addEventListener("click", () => scrollIntoView("#home"));
 
+// 유틸리티 함수
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
-
-document
-  .querySelector(".home__btn")
-  .addEventListener("click", () => scrollIntoView("#contact"));

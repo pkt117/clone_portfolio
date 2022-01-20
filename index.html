@@ -50,17 +50,19 @@
 
     <!-- home -->
     <section id="home">
-      <img src="imgs/avatar.jpg" alt="avatar_img" class="home__avatar" />
-      <h1 class="home__title">
-        Hello, <br />
-        I'm Dream Coder <br />
-      </h1>
+      <div class="home__container">
+        <img src="imgs/avatar.jpg" alt="avatar_img" class="home__avatar" />
+        <h1 class="home__title">
+          Hello, <br />
+          I'm Dream Coder <br />
+        </h1>
 
-      <h2 class="home__comment">
-        A Software Engineer currently residing in Sydney, Australia.
-      </h2>
+        <h2 class="home__comment">
+          A Software Engineer currently residing in Sydney, Australia.
+        </h2>
 
-      <button class="home__btn">CONTACT ME</button>
+        <button class="home__btn">CONTACT ME</button>
+      </div>
     </section>
 
     <!-- about -->
@@ -224,18 +226,23 @@
       <h2 class="work__subTitle">Projects</h2>
 
       <div class="work__categories">
-        <button class="category__btn active">
+        <button class="category__btn active" data-category="all">
           All <span class="category__count">8</span></button
-        ><button class="category__btn">
+        ><button class="category__btn" data-category="front">
           Front-end <span class="category__count">3</span></button
-        ><button class="category__btn">
+        ><button class="category__btn" data-category="back">
           Back-end <span class="category__count">3</span></button
-        ><button class="category__btn">
+        ><button class="category__btn" data-category="mobile">
           Mobile <span class="category__count">2</span>
         </button>
       </div>
       <div class="work__projects">
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="front"
+        >
           <img
             class="project__img"
             src="imgs/projects/project1.png"
@@ -247,7 +254,12 @@
           </div>
         </a>
 
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="front"
+        >
           <img
             class="project__img"
             src="imgs/projects/project2.png"
@@ -259,7 +271,12 @@
           </div>
         </a>
 
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="back"
+        >
           <img
             class="project__img"
             src="imgs/projects/project3.png"
@@ -271,7 +288,12 @@
           </div>
         </a>
 
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="front"
+        >
           <img
             class="project__img"
             src="imgs/projects/project4.png"
@@ -283,7 +305,12 @@
           </div>
         </a>
 
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="mobile"
+        >
           <img
             class="project__img"
             src="imgs/projects/project5.png"
@@ -295,7 +322,12 @@
           </div>
         </a>
 
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="back"
+        >
           <img
             class="project__img"
             src="imgs/projects/project6.png"
@@ -307,7 +339,12 @@
           </div>
         </a>
 
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="mobile"
+        >
           <img
             class="project__img"
             src="imgs/projects/project7.png"
@@ -319,7 +356,12 @@
           </div>
         </a>
 
-        <a href="https://www.naver.com/" class="project" target="blank">
+        <a
+          href="https://www.naver.com/"
+          class="project"
+          target="blank"
+          data-category="back"
+        >
           <img
             class="project__img"
             src="imgs/projects/project8.png"
@@ -390,5 +432,6 @@
         2020 Dream Coding Ellie - All rights reserved
       </p>
     </section>
+    <button id="top_btn"><i class="fas fa-arrow-up"></i></button>
   </body>
 </html>

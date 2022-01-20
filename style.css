@@ -364,6 +364,13 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 40px;
+  opacity: 1;
+  transition: all 200ms ease-out;
+}
+
+.work__projects.out_ani {
+  transform: scale(0.96) translateY(40px);
+  opacity: 0;
 }
 
 .work__projects .project {
@@ -375,6 +382,10 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.project.invisible {
+  display: none;
 }
 
 .work__projects .project .project__img {
@@ -490,6 +501,28 @@ p {
 #contact .contact__rights {
   font-size: var(--font-micro);
   color: var(--color-light-white);
+}
+
+/* etc.. */
+
+#top_btn {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 30px;
+  right: 30px;
+  font-size: 30px;
+  background: var(--color-dark-pink);
+  color: var(--color-white);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-in;
+}
+
+#top_btn.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 768px) {
