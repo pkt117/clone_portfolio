@@ -147,9 +147,10 @@ p {
   color: white;
   position: absolute;
   top: 20px;
-  right: 32px;
+  right: 20px;
   font-size: 24px;
   display: none;
+  transition: all 300ms ease-in-out;
 }
 .navbar__toggle-btn.navbar--dark {
   top: 10px;
