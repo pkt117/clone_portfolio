@@ -151,6 +151,9 @@ p {
   font-size: 24px;
   display: none;
 }
+.navbar__toggle-btn.navbar--dark {
+  top: 10px;
+}
 
 /* home */
 
