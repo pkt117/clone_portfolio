@@ -8,8 +8,10 @@ navbar_menu.addEventListener("click", (event) => {
   if (event.target.dataset.id == null) {
     return;
   }
+  navbar_menu.classList.remove("open");
   scrollIntoView(event.target.dataset.id);
-  menu_items.forEach((element) => element.classList.remove("active"));
+  const active = document.querySelector(".navbar__menu__item.active");
+  active.classList.remove("active");
   event.target.classList.add("active");
 });
 
@@ -53,9 +55,11 @@ category_btn.addEventListener("click", (event) => {
 
   if (category == null) return;
   //  버튼 클릭 부분
-  btn_items.forEach((element) => element.classList.remove("active"));
-  event.target.classList.add("active") ||
-    event.target.parentNode.classList.add("active");
+  const active_btn = document.querySelector(".category__btn.active");
+  active_btn.classList.remove("active");
+  const target =
+    event.target.nodeName === "BUTTON" ? event.target : event.target.parentNode;
+  target.classList.add("active");
   // filter에 맞는 데이터 출력 및 애니메이션
   project_container.classList.add("out_ani");
   setTimeout(() => {
